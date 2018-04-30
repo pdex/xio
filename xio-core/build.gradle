@@ -40,7 +40,6 @@ jacocoTestReport {
 
 description = 'xio'
 group = project_group
-version = project_version
 
 def nativeClassifier
 def osName = System.getProperty('os.name').toLowerCase()
@@ -165,7 +164,7 @@ publishing {
     maven(MavenPublication) {
       groupId project_group
       artifactId bintray_package
-      version project_version
+      version version
       from components.java
     }
   }

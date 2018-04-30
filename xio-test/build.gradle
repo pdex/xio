@@ -5,7 +5,6 @@ plugins {
 
 description = 'xio-test'
 group = project_group
-version = project_version
 
 dependencies {
   implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: okhttp_version
@@ -19,7 +18,7 @@ publishing {
     maven(MavenPublication) {
       groupId project_group
       artifactId bintray_package
-      version project_version
+      version version
     }
   }
   repositories {
