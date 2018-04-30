@@ -12,3 +12,24 @@ dependencies {
   implementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: okhttp_version
   implementation group: 'com.typesafe', name: 'config', version: typesafe_config_version
 }
+
+bintray_package = 'xio-test'
+publishing {
+  publications {
+    maven(MavenPublication) {
+      groupId project_group
+      artifactId bintray_package
+      version project_version
+    }
+  }
+  repositories {
+    maven {
+      name = 'bintray'
+      url = 'https://api.bintray.com/maven/${bintray_subject}/${bintray_repo}/${bintray_package}/;publish=1'
+      credentials {
+        username = bintray_user
+        password = bintray_apikey
+      }
+    }
+  }
+}

@@ -1,10 +1,17 @@
 plugins {
   id 'java'
+  id 'net.researchgate.release' version '2.7.0'
 }
 
 allprojects {
+  apply plugin: 'maven-publish'
+
   repositories {
     jcenter()
+  }
+
+  release {
+    tagTemplate = 'v${version}'
   }
 
   sourceCompatibility = 1.8
@@ -13,4 +20,11 @@ allprojects {
 
 task wrapper(type: Wrapper) {
   gradleVersion = '4.7'
+}
+
+task verifyBintrayConfig {
+  doLast {
+    println "bintray_user: $bintray_user"
+    println "bintray_apikey: $bintray_apikey"
+  }
 }
