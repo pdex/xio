@@ -32,5 +32,4 @@ task verifyBintrayConfig {
   }
 }
 
-afterReleaseBuild.dependsOn ":xio:bintrayUpload"
-afterReleaseBuild.dependsOn ":xio-test:bintrayUpload"
+afterReleaseBuild.dependsOn bintray.bintrayUpload
