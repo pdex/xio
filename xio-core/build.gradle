@@ -7,23 +7,6 @@ plugins {
   id 'com.jfrog.bintray'
 }
 
-//bintray {
-//  user = System.getenv('BINTRAY_USER')
-//  key = System.getenv('BINTRAY_KEY')
-//  // dryRun = true //[Default: false] Whether to run this as dry-run, without deploying
-//  // publish = false //[Default: false] Whether version should be auto published after an upload
-//  // override = false //[Default: false] Whether to override version artifacts already published
-//  pkg {
-//    repo = 'oss_maven'
-//    name = 'xio'
-//    userOrg = 'nordstromoss'
-//    licenses = ['Apache-2.0']
-//    websiteUrl = 'https://github.com/xjdr/xio'
-//    issueTrackerUrl = 'https://github.com/xjdr/xio/issues'
-//    vcsUrl = 'https://github.com/xjdr/xio.git'
-//  }
-//}
-
 googleJavaFormat {
   // todo: example should be moved into a separate module
   exclude "src/example/**/*"
@@ -168,16 +151,6 @@ publishing {
       from components.java
     }
   }
-//  repositories {
-//    maven {
-//      name = 'bintray'
-//      url = "https://api.bintray.com/maven/${bintray_subject}/${bintray_repo}/${bintray_package}/"
-//      credentials {
-//        username = bintray_user
-//        password = bintray_apikey
-//      }
-//    }
-//  }
 }
 
 bintray {
