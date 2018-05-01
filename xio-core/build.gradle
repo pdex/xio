@@ -183,7 +183,7 @@ publishing {
 bintray {
   user = bintray_user //this usually comes from gradle.properties file in ~/.gradle
   key = bintray_apikey //this usually comes from gradle.properties file in ~/.gradle
-  publications = ['maven'] //this refers to publishing.publications.maven up above ^^^
+  //publications = ['maven'] //this refers to publishing.publications.maven up above ^^^
   dryRun = bintray_dryrun //Whether to run this as dry-run, without deploying
   publish = true //If version should be auto published after an upload
   pkg {
@@ -193,5 +193,9 @@ bintray {
     version {
       name = project.version //Bintray logical version name
     }
+  }
+  //Workaround for bintray plugin/Gradle bug (https://github.com/bintray/gradle-bintray-plugin/issues/159)
+  if (!('tasks' in gradle.startParameter.taskNames)) {
+    publications = project.publishing.publications*.name
   }
 }
