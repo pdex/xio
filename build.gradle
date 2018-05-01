@@ -33,7 +33,7 @@ task verifyBintrayConfig {
 }
 
 task imWithStupid(type:Exec) {
-  commandLine './gradlew', 'bintrayUpload'
+  commandLine './gradlew', '-info', 'bintrayUpload'
 }
 
 afterReleaseBuild.dependsOn imWithStupid
